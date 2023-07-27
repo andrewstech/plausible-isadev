@@ -1,15 +1,3 @@
-We are building Plausible to provide a simple and ethical approach to tracking website visitors.
-We're super excited to have you on board!
-<br /><br />
-Here's how to get the most out of your Plausible experience:
-<br /><br />
-* <%= link("Enable email reports", to: "https://plausible.io/docs/email-reports") %> and notifications for <%= link("traffic spikes", to: "https://plausible.io/docs/traffic-spikes") %><br />
-* <%= link("Integrate with Search Console", to: "https://plausible.io/docs/google-search-console-integration") %> to get keyword phrases people find your site with<br />
-* <%= link("Invite team members and other collaborators", to: "https://plausible.io/docs/users-roles") %><br />
-* Set up easy goals including <%= link("404 error pages", to: "https://plausible.io/docs/error-pages-tracking-404") %>, <%= link("file downloads", to: "https://plausible.io/docs/file-downloads-tracking") %> and <%= link("outbound link clicks", to: "https://plausible.io/docs/outbound-link-click-tracking") %><br />
-* <%= link("Opt out from counting your own visits", to: "https://plausible.io/docs/excluding") %><br />
-* If you're concerned about adblockers, <%= link("set up a proxy to bypass them", to: "https://plausible.io/docs/proxy/introduction") %><br />
-<br /><br />
-Then you're ready to start exploring your fast loading, ethical and actionable <%= link("Plausible dashboard", to: "https://plausible.io/sites") %>.
-<br /><br />
-Have a question, feedback or need some guidance? Do reply back to this email.
+We are thrilled to welcome you to Is-a.dev Analytics, powered by Plausible! With our powerful and user-friendly analytics platform, you can gain valuable insights into your website's performance, visitor engagement, and much more.
+Plausible Analytics provides privacy-first website analytics, ensuring that you have access to essential data without compromising your users' privacy. Say goodbye to tracking cookies and intrusive practices!
+Getting started is easy. Just sign in to your https://manage.is-a.dev

@@ -1,3 +1,4 @@
+<img src="https://raw.githubusercontent.com/is-a-dev/register/main/media/logo.png" alt="Is-a.dev Logo" width="150" height="150" style="display: block;">
 <%= PlausibleWeb.EmailView.greet_recipient(assigns) %>
 <br /><br />
 

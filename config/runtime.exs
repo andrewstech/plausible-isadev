@@ -448,7 +448,7 @@ cloud_cron = [
   {"0 0 * * *", Plausible.Workers.LockSites}
 ]
 
-crontab = if(is_selfhost, do: base_cron, else: base_cron ++ cloud_cron)
+crontab = if(is_selfhost, do: base_cron, else: base_cron)
 
 base_queues = [
   rotate_salts: 1,
@@ -470,7 +470,7 @@ cloud_queues = [
   lock_sites: 1
 ]
 
-queues = if(is_selfhost, do: base_queues, else: base_queues ++ cloud_queues)
+queues = if(is_selfhost, do: base_queues, else: base_queues)
 cron_enabled = !disable_cron
 
 thirty_days_in_seconds = 60 * 60 * 24 * 30

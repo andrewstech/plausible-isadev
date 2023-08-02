@@ -1,40 +1,21 @@
 defmodule PlausibleWeb.Api.ExternalSitesController do
   use PlausibleWeb, :controller
   use Plausible.Repo
-  use PlausibleWeb.Email
   use Plug.ErrorHandler
   alias Plausible.Sites
   alias Plausible.Goals
-  alias Plausible.Mailer
   alias PlausibleWeb.Api.Helpers, as: H
 
   def create_site(conn, params) do
     user = conn.assigns[:current_user]
     email = params["email"]
-    newuser = Plausible.Auth.find_user_by(email: email)
 
     case Sites.create(user, params) do
       {:ok, %{site: site}} ->
+        Repo.get_by(Plausible.Site.WeeklyReport, site_id: site)
+        |> Plausible.Site.WeeklyReport.add_recipient(email)
+        |> Repo.update!()
         json(conn, site)
-        case Repo.insert(
-             Invitation.new(%{
-               email: email,
-               role: "admin",
-               site_id: site,
-               inviter_id: conn.assigns[:current_user].id
-             })
-           ) do
-        {:ok, invitation} ->
-          invitation = Repo.preload(invitation, [:site, :inviter])
-
-          email_template =
-            if user do
-              PlausibleWeb.Email.existing_user_invitation(invitation)
-            else
-              PlausibleWeb.Email.new_user_invitation(invitation)
-            end
-
-          Plausible.Mailer.send(email_template)
 
       {:error, :limit, limit, _} ->
         conn
@@ -43,7 +24,6 @@ defmodule PlausibleWeb.Api.ExternalSitesController do
           error:
             "Your account has reached the limit of #{limit} sites per account. Please contact hello@plausible.io to unlock more sites."
         })
-      end
 
       {:error, _, changeset, _} ->
         conn

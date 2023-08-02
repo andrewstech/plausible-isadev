@@ -43,6 +43,7 @@ defmodule PlausibleWeb.Api.ExternalSitesController do
           error:
             "Your account has reached the limit of #{limit} sites per account. Please contact hello@plausible.io to unlock more sites."
         })
+      end
 
       {:error, _, changeset, _} ->
         conn
